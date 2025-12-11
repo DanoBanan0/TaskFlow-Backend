@@ -3,6 +3,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { ProjectsModule } from './projects/projects.module';
 
 @Module({
   imports: [
@@ -26,6 +27,8 @@ import { AppService } from './app.service';
         synchronize: true, // ¡CUIDADO! En producción esto va en false. En desarrollo crea las tablas automáticamente.
       }),
     }),
+
+    ProjectsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
